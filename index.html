@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="ua">
-<head>
+  <head>
     <title>Dima Mazur</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h2>Усім привіт!</h2>
-    <h1>Мене звати Дмитро Мазур</h1>
-    <h3>Я студент групи IFc-109.HTML5 у SoftServe IT Academy &reg;</h3>
-    <hr>
-    <p>За <a href="http://overapi.com/html" target="_blank">цим посиланням</a> ви можете знайти цікаву інформацію про <b>мову розмітки HTML5</b> та <b>мову стилів CSS3</b> </p>
-    <p>А це - піктограма <b> Git Bash</b></p>
-    <div class="gitpic">
-        <a href="https://learn.javascript.ru/screencast/git" target="_blank" title="скрінкаст по GIT"> 
-            <img src="images/git.png" alt="піктограма Git Bash">
-        </a>
-    </div>
-    <p>Вона <b><i>клікабельна</i></b> і по ній можна перейти на гарний скрінкаст з GIT</p>
-<hr>
-Сторінка з <a href="table/tables.html">таблицею з домашки</a>
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>Вітаю!</h2>
+      <h1>Мене звати Дмитро Мазур</h1>
+      <h3>Я студент групи IFc-109.HTML5 у SoftServe IT Academy &reg;</h3>
+      <p class="p-head">
+        на цій сторінці я викладаю записи та домашки під час навчання
+      </p>
+    </header>
+    <hr />
+    <nav>
+      <a href="#11.05">Запис за 11.05.2020</a>
+      <a href="#13.05">Запис за 13.05.2020</a>
+    </nav>
+    <hr />
+    <h2 id="11.05">11 травня 2020 року</h2>
+    <p>Деякі корисні посилання:</p>
+    <section class="overapi">
+      <a href="http://overapi.com/html" target="_blank" title="overAPI.com">
+        <img src="images/overapi-logo.png" alt="піктограма overAPI" />
+      </a>
+      <p>OverAPI.com</p>
+    </section>
+    <!-- <p>За <a href="http://overapi.com/html" target="_blank">цим посиланням</a> ви можете знайти цікаву інформацію про <b>мову розмітки HTML5</b> та <b>мову стилів CSS3</b> </p> -->
+    <!-- <p class="p11-05">А це - піктограма <b> Git Bash</b></p> -->
+    <section class="gitpic">
+      <a
+        href="https://learn.javascript.ru/screencast/git"
+        target="_blank"
+        title="скрінкаст по GIT"
+      >
+        <img src="images/git.png" alt="піктограма Git Bash" />
+      </a>
+      <p>Скрінкаст з GIT</p>
+    </section>
+    <section class="w3s">
+      <a
+        href="https://www.w3schools.com/"
+        target="_blank"
+        title="w3schools.com"
+      >
+        <img src="images/w3schools.png" alt="піктограма w3schools" />
+      </a>
+      <p>w3schools.com</p>
+    </section>
+
+    <p class="p11-05">
+      Усі <b><i>піктограми клікабельні</i></b> і по ним можна перейти на
+      відповідний ресурс
+    </p>
+    <hr />
+    <h2 id="13.05">13 травня 2020 року</h2>
+    Сторінка з <a href="table/tables.html">таблицею з домашки</a>
+  </body>
 </html>
