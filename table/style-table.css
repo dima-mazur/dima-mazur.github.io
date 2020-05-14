@@ -1,6 +1,6 @@
 html {
   background-color: rgb(155, 168, 180);
-  font-size: 24px;
+  font-size: 18px;
 }
 
 table {
@@ -17,6 +17,10 @@ td {
 tr {
   height: 40px;
   border-style: solid;
+}
+
+a {
+    text-align: left;
 }
 
 

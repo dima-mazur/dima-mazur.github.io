@@ -1,0 +1,12 @@
+html {
+    background-color: lightgrey;
+}
+
+table, td, tr {
+    border-collapse: collapse;
+    border: 3px solid;
+}
+
+a {
+    text-align: left;
+}
