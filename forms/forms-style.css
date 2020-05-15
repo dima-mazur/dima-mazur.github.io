@@ -1,12 +1,26 @@
 html {
-    background-color: lightgrey;
+  background-image: url(img/backgraund.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 24px;
 }
 
-table, td, tr {
-    border-collapse: collapse;
-    border: 3px solid;
+table,
+td,
+tr {
+  background-color: ivory;
+  border-collapse: collapse;
+  border: solid;
+  margin: auto;
 }
 
-a {
-    text-align: left;
+:any-link {
+  color: ivory;
+  font-style: italic;
+  font-size: 16px;
+}
+.submit {
+  text-align: center;
+  padding: 5px;
 }

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="forms-style.css">
 </head>
 <body>
+    
+        <a href="../index.html">Повернутися на головну</a>
+    
     <table>
         <tr>
             <th colspan="2">Pizza Shop 2.0</th>
@@ -21,12 +24,47 @@
             <td>Pizza Topping:</td>
             <td>
                 <form action="topping">
-                    <input type="radio" name="Supreme" id="topping-supreme" title="Supreme">Supreme
-                
+                    <input type="radio" name="Supreme" id="topping-supreme" title="Supreme">Supreme <br>
+                    <input type="radio" name="Vegetarian" id="topping-vegetarian" title="Vegetarian">Vegetarian <br>
+                    <input type="radio" name="Hawaiian" id="topping-hawaiian" title="Hawaiian">Hawaiian <br>
+                                </form>
+            </td>
+        </tr>
+            <tr>
+                <td>Pizza Sauce:</td>
+                <td>
+                    <form action="sauce">
+                        <select name="sauce" id="sauce">
+                        <option value="Tomato">Tomato</option>
+                        <option value="Garlic">Garlic</option>
+                        <option value="Cheese">Cheese</option>
+                    </select>
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Optional Extras:</td>
+                <td>
+                    <form action="extras">
+                        <input type="checkbox" name="Extra Cheese" id="exchesse">Extra Cheese <br>
+                        <input type="checkbox" name="Gluten Free" id="glutenfree">Gluten Free
+                </td>
+            </tr>
+        <tr>
+            <td colspan="2">Delivery Instructions: <br>
+                <form action="delivery">
+                    <textarea name="delivery" id="delivery" cols="50" rows="10"></textarea>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <form action="submit" class="submit">
+                    <input type="submit" value="Send my Order">
                 </form>
             </td>
         </tr>
     </table>
-    <a href="../index.html">Повернутися на головну</a>
+    
 </body>
 </html>
