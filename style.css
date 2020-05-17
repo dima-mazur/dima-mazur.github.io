@@ -19,8 +19,10 @@ h3, .p-head {
   display: inline-block;
   padding-left: 10vw;
   text-align: center;
+  flo
 }
 
-/* .pic-title {
-    display: inline;
-} */
+nav a {
+  background-color: white;
+  padding: 5px;
+}
