@@ -1,28 +1,47 @@
 html {
-  background-color: rgb(188, 197, 202);
+  background-color: gainsboro;
+  font-family: "PT Sans", sans-serif;
 }
 
-h1 {
-  text-align: center;
+header {
   color: rgb(63, 63, 63);
 }
 
-h3, .p-head {
+h1,
+legend {
+  text-align: center;
+}
+
+fieldset {
+  padding: 1.5em;
+}
+
+h3,
+.p-head {
   text-align: right;
+}
+
+hr + h3 {
+  text-align: left;
 }
 
 .p11-05 {
   text-align: center;
 }
 
-.overapi, .gitpic, .w3s {
-  display: inline-block;
-  padding-left: 10vw;
+.overapi,
+.gitpic,
+.w3s {
+  float: left;
+  width: 33%;
   text-align: center;
-  flo
 }
 
 nav a {
-  background-color: white;
+  background-color: rgb(105, 175, 24);
   padding: 5px;
+  border-radius: 1.2rem;
+  color: rgb(52, 45, 58);
+  text-decoration: none;
+  font-family: cursive;
 }
