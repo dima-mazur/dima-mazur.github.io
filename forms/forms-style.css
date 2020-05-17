@@ -19,6 +19,10 @@ tr {
   color: ivory;
   font-style: italic;
   font-size: 16px;
+  text-decoration: none;
+  background-color: dimgrey;
+  padding: 10px;
+  border-radius: 10px;
 }
 .submit {
   text-align: center;
