@@ -1,9 +1,11 @@
 html {
-  background-color: rgb(155, 168, 180);
+  background-color: gainsboro;
   font-size: 18px;
 }
 
-table {
+table,
+td,
+tr {
   border-collapse: collapse;
   border-style: solid;
   margin: auto;
@@ -11,16 +13,16 @@ table {
 
 td {
   width: 100px;
-  border-style: solid;
 }
 
 tr {
   height: 40px;
-  border-style: solid;
 }
 
 a {
-    text-align: left;
+  background-color: white;
+  padding: 10px;
+  text-align: left;
+  border-radius: 10px;
+  text-decoration: none;
 }
-
-
