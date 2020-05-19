@@ -14,6 +14,7 @@ legend {
 
 fieldset {
   padding: 1.5em;
+  border-radius: 30px 30px 0 0;
 }
 
 h3,
