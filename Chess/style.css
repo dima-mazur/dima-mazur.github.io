@@ -1,0 +1,148 @@
+.chessdesk {
+  width: 640px;
+  height: 640px;
+  border: 1px solid black;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.lit {
+  display: table-cell;
+  width: 75px;
+  height: 20px;
+}
+
+div .row,
+.toptrow,
+.downrow {
+  display: table-row;
+}
+
+.numb {
+  display: table-cell;
+  width: 20px;
+  height: 73px;
+  vertical-align: middle;
+}
+
+.x {
+  display: table-cell;
+  width: 20px;
+  height: 20px;
+}
+
+div .cell {
+  display: table-cell;
+  width: 75px;
+  height: 75px;
+}
+
+.lit,
+.numb {
+  border: 1px solid black;
+}
+
+div .white {
+  background-color: white;
+}
+
+div .black {
+  background-color: black;
+}
+
+.back {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/* белые */
+.tww {
+  background-image: url(img/white/tura-w.png);
+}
+
+.hwb {
+  background-image: url(img/white/horse-w.png);
+}
+
+.fww {
+  background-image: url(img/white/fers-w.png);
+}
+
+.qwb {
+  background-image: url(img/white/queen-w.png);
+}
+
+.kww {
+  background-image: url(img/white/king-w.png);
+}
+
+.fwb {
+  background-image: url(img/white/fers-wb.png);
+}
+
+.hww {
+  background-image: url(img/white/horse-ww.png);
+}
+
+.twb {
+  background-image: url(img/white/tura-wb.png);
+}
+
+.swb {
+  background-image: url(img/white/sold-wb.png);
+}
+
+.sww {
+  background-image: url(img/white/sold-ww.png);
+}
+
+/* черные */
+
+.tbb {
+  background-image: url(img/black/tura-bb.png);
+}
+
+.hbw {
+  background-image: url(img/black/horse-bb.png);
+}
+
+.fbb {
+  background-image: url(img/black/fers-bb.png);
+}
+
+.qbw {
+  background-image: url(img/black/queen-bw.png);
+}
+
+.kbb {
+  background-image: url(img/black/king-bw.png);
+}
+
+.fbw {
+  background-image: url(img/black/fers-bb.bw.png);
+}
+
+.hbb {
+  background-image: url(img/black/horse-bw.png);
+}
+
+.tbw {
+  background-image: url(img/black/tura-bw.png);
+}
+
+.sbw {
+  background-image: url(img/black/sold-bw.png);
+}
+
+.sbb {
+  background-image: url(img/black/sold-bb.png);
+}
+
+a {
+    background-color: rgb(240, 111, 111);
+    padding: 10px;
+    text-align: left;
+    border-radius: 30px 10px;
+    text-decoration: none;
+  }
