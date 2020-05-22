@@ -1,0 +1,130 @@
+.chessdesk {
+  width: 840px;
+  height: 840px;
+  border: black 1px solid;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.row,
+.downrow {
+  display: flex;
+}
+
+div .cell {
+  flex-basis: 100px;
+  height: 100px;
+}
+
+.x {
+  flex-basis: 20px;
+}
+
+.lit {
+  flex-basis: 100px;
+}
+
+.numb {
+  flex-basis: 20px;
+}
+.x,
+.lit,
+.numb {
+  border: black 1px solid;
+}
+
+div .white {
+  background-color: white;
+}
+
+div .black {
+  background-color: black;
+}
+
+.back {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+/* белые */
+.tww {
+  background-image: url(img/white/tura-w.png);
+}
+
+.hwb {
+  background-image: url(img/white/horse-w.png);
+}
+
+.fww {
+  background-image: url(img/white/fers-w.png);
+}
+
+.qwb {
+  background-image: url(img/white/queen-w.png);
+}
+
+.kww {
+  background-image: url(img/white/king-w.png);
+}
+
+.fwb {
+  background-image: url(img/white/fers-wb.png);
+}
+
+.hww {
+  background-image: url(img/white/horse-ww.png);
+}
+
+.twb {
+  background-image: url(img/white/tura-wb.png);
+}
+
+.swb {
+  background-image: url(img/white/sold-wb.png);
+}
+
+.sww {
+  background-image: url(img/white/sold-ww.png);
+}
+
+/* черные */
+
+.tbb {
+  background-image: url(img/black/tura-bb.png);
+}
+
+.hbw {
+  background-image: url(img/black/horse-bb.png);
+}
+
+.fbb {
+  background-image: url(img/black/fers-bb.png);
+}
+
+.qbw {
+  background-image: url(img/black/queen-bw.png);
+}
+
+.kbb {
+  background-image: url(img/black/king-bw.png);
+}
+
+.fbw {
+  background-image: url(img/black/fers-bb.bw.png);
+}
+
+.hbb {
+  background-image: url(img/black/horse-bw.png);
+}
+
+.tbw {
+  background-image: url(img/black/tura-bw.png);
+}
+
+.sbw {
+  background-image: url(img/black/sold-bw.png);
+}
+
+.sbb {
+  background-image: url(img/black/sold-bb.png);
+}
