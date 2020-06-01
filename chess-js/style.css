@@ -1,0 +1,16 @@
+#content {
+    display: table;
+    border-collapse: collapse;
+}
+
+.row {
+    display: table-row;
+    border-collapse: collapse;
+}
+
+.cell {
+    display: table-cell;
+    width: 50px;
+border: 1px solid black;
+border-collapse: collapse;
+}
