@@ -25,3 +25,5 @@ function addTodoItem(e) {
     }
 
 }
+
+var myNodelist = document.getElementsByTagName("p");
