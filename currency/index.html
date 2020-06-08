@@ -4,23 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>currency</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="course" class="col-6">
-        <select name="currency" id="currency">
+    <div class="row">
+    <div id="course" class="col-sm-6">
+        <div class="row checkCourse">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioUSD" value="USD" checked>
+            <label class="form-check-label" for="inlineRadioUSD"><b>USD</b></label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioEUR" value="EUR">
+            <label class="form-check-label" for="inlineRadioEUR"><b>EUR</b></label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioPLN" value="PLN">
+            <label class="form-check-label" for="inlineRadioPLN"><b>PLN</b></label>
+          </div>
+          <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadioRUB" value="RUB">
+            <label class="form-check-label" for="inlineRadioRUB"><b>RUB</b></label>
+          </div>
+        <!-- <select name="currency" id="currency">
             <option value="USD">US Dolar</option>
             <option value="EUR">EURO</option>
             <option value="PLN">Polish Zloty</option>
             <option value="RUB">Russian Rouble</option>
-        </select>
+        </select> -->
         <input type="date" name="cdate" id="cdate">
         <input type="button" value="Get Rate..." id="btnGet">
-        <div id="currencyValue"></div>
-
     </div>
-    <div id="calc" class="col-6"></div>
+        <div id="currencyValue" class="row"></div>
+    </div>
+
+    <div id="calc" class="col-sm-6"></div>
+</div>
     <div id="chart" class="col-12"></div>
 
 
