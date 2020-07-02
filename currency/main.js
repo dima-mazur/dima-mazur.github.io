@@ -1,6 +1,5 @@
 document.getElementById("btnGet").addEventListener("click", getRate);
 
-
 var BASE_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=";
 
 function getRate(e) {
@@ -175,4 +174,63 @@ function rubcalc(e) {
         EUR.value = (e.target.value * (rubRate / eurRate)).toFixed(2);
     }
 }
+
+// секция с графиком
+
+// //  получаем даты
+
+
+// (function () {
+//     'use strict'
+  
+//     feather.replace()
+  
+//     // Graphs
+//     var ctx = document.getElementById('myChart')
+//     // eslint-disable-next-line no-unused-vars
+//     var myChart = new Chart(ctx, {
+//       type: 'line',
+//       data: {
+//         //   сода впихнуть даты
+//         labels: [
+//           'Sunday',
+//           'Monday',
+//           'Tuesday',
+//           'Wednesday',
+//           'Thursday',
+//           'Friday',
+//           'Saturday'
+//         ],
+//         // сода впихнуть значения
+//         datasets: [{
+//           data: [
+//             15339,
+//             21345,
+//             18483,
+//             24003,
+//             23489,
+//             24092,
+//             12034
+//           ],
+//           lineTension: 0,
+//           backgroundColor: 'transparent',
+//           borderColor: '#007bff',
+//           borderWidth: 4,
+//           pointBackgroundColor: '#007bff'
+//         }]
+//       },
+//       options: {
+//         scales: {
+//           yAxes: [{
+//             ticks: {
+//               beginAtZero: false
+//             }
+//           }]
+//         },
+//         legend: {
+//           display: false
+//         }
+//       }
+//     })
+//   }())
 
