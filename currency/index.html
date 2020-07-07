@@ -32,45 +32,44 @@
           </div>
 
         <input type="date" name="cdate" id="cdate" />
-        <input type="button" value="Get Rate..." id="btnGet" />
+        <input type="button" value="Get Rate" id="btnGet" />
       </div>
       <div id="currencyValue" class="row"></div>
     </div>
 
     <div id="calc" class="col-sm-6">
       <div class="row chooseDate">
-        <!-- кнопки сюда-->
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active">
-            <input type="radio" name="optionsCalc" id="optionToday" autocomplete="off" ><b>Today</b> 
+            <input type="radio" name="optionsCalc" id="optionToday" autocomplete="off" checked ><b>Today</b> 
           </label>
           <label class="btn btn-secondary">
             <input type="radio" name="optionsCalc" id="optionCalendar" autocomplete="off"><b>Choose date</b> 
           </label>
           
         </div>
-        <input type="date" name="calcdate" id="calcdate" class="invisible" />
-        <input type="button" value="Get Rate..." id="btnGetCalc" class="invisible"/>
+        <input type="date" name="calcdate" id="calcDate" class="invisible" />
+        <input type="button" value="Get Rate" id="btnGetCalc" class="invisible"/>
       </div>
       <form>
         <div class="row">
           <div class="col">
             <span><b>UAH</b></span>
-            <input type="text" class="form-control" placeholder="UAH" id="UAH" autocomplete="off">
+            <input type="number" class="form-control" placeholder="UAH" id="UAH" autocomplete="off">
           </div>
           <div class="col">
             <span><b>USD</b></span>
-            <input type="text" class="form-control" placeholder="USD" id="USD" autocomplete="off">
+            <input type="number" class="form-control" placeholder="USD" id="USD" autocomplete="off">
           </div>
         </div>
         <div class="row">
           <div class="col">
             <span><b>EUR</b></span>
-            <input type="text" class="form-control" placeholder="EUR" id="EUR" autocomplete="off">
+            <input type="number" class="form-control" placeholder="EUR" id="EUR" autocomplete="off">
           </div>
           <div class="col">
             <span><b>RUB</b></span>
-            <input type="text" class="form-control" placeholder="RUB" id="RUB" autocomplete="off">
+            <input type="number" class="form-control" placeholder="RUB" id="RUB" autocomplete="off">
           </div>
         </div>
       </form>
