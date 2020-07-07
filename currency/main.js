@@ -1,178 +1,193 @@
+document.addEventListener("DOMContentLoaded", () => { getRateToday(), getRate(), todayDateValue() });
 document.getElementById("btnGet").addEventListener("click", getRate);
 
+const BASE_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=";
 
-var BASE_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=";
+// console.log (URI);
+
+function todayDateValue () {
+    document.getElementById('cdate').value = [today].splice(4, 1, '-');
+}
+
+function getJson(response) {
+    return response.json();
+}
+
+function checkStatus(response) {
+    if (response.status >= 200 && response.status < 300) {
+        return Promise.resolve(response);
+    } 
+        return Promise.reject(new Error(response.statusText));
+}
 
 function getRate(e) {
-    var radio = document.getElementsByName("inlineRadioOptions");
-    for (let i = 0; i < radio.length; i++) {
-        if (radio[i].checked) {
-            var radioValue = radio[i];
+    let currencyRadioButtonValue = document.getElementsByName("inlineRadioOptions");
+    let radioValue;
+    for (let i = 0; i < currencyRadioButtonValue.length; i++) {
+        if (currencyRadioButtonValue[i].checked) {
+            radioValue = currencyRadioButtonValue[i];
         }
     }
-    var datev = cdate.value.split("-").join("");
-    var URI = BASE_URL + radioValue.value + "&date=" + datev + "&json";
-    var XHR = new XMLHttpRequest();
-    XHR.open("GET", URI);
-    XHR.send();
-    XHR.addEventListener("readystatechange", handler);
-}
+    let dateValue = cdate.value.split("-").join("");
+    let URI = BASE_URL + radioValue.value + "&date=" + dateValue + "&json";
 
-function handler(e) {
-    if ((e.target.readyState === 4) && (e.target.status === 200)) {
-        var data = JSON.parse(e.target.responseText)[0];
-        currencyValue.innerHTML = "<span>" + data.rate + "</span>";
+    fetch(URI)
+        .then(checkStatus)
+        .then(getJson)
+        .then(function (data) {
+            currencyValue.innerHTML = "<span>" + data[0].rate + "</span>";
+        })
+        .catch(function (error) {
+            alert('Request failed', error);
+        });
     }
-}
 
-// ниже раздел с калькулятором
-document.getElementById("optionCalendar").addEventListener("click", visible)
-function visible(e) {
-    document.getElementById('calcdate').setAttribute('class', 'visible');
-    document.getElementById('btnGetCalc').setAttribute('class', 'visible');
-}
-
-document.getElementById("optionToday").addEventListener("click", () => { invisible(); getRateToday(); });
-function invisible(e) {
-    document.getElementById('calcdate').setAttribute('class', 'invisible');
-    document.getElementById('btnGetCalc').setAttribute('class', 'invisible');
-}
-
-document.getElementById("btnGetCalc").addEventListener("click", getRateCalendar);
-
-var currency = ['USD', 'EUR', 'RUB'];
-var UAH = document.getElementById('UAH');
-var USD = document.getElementById('USD');
-var EUR = document.getElementById('EUR');
-var RUB = document.getElementById('RUB');
-document.getElementById('UAH').addEventListener('change', uahcalc);
-document.getElementById("USD").addEventListener("change", usdcalc);
-document.getElementById('EUR').addEventListener('change', eurcalc);
-document.getElementById('RUB').addEventListener('change', rubcalc);
-
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-today = yyyy + mm + dd;
-
-var usdRate = 0;
-var eurRate = 0;
-var rubRate = 0;
-var uahRate = 0;
-
-var XHRusd = 0;
-var XHReur = 0;
-var XHRrub = 0;
-
-var URIcalc = [];
-
-function calcUSD(e) {
-    var currencyRate = JSON.parse(e.target.responseText)[0];
-    usdRate = currencyRate.rate;
-}
-
-function calcEUR(e) {
-    var currencyRate = JSON.parse(e.target.responseText)[0];
-    eurRate = currencyRate.rate;
-}
-
-function calcRUB(e) {
-    var currencyRate = JSON.parse(e.target.responseText)[0];
-    rubRate = currencyRate.rate;
-}
-
-
-function getRateToday(e) {
-    for (var i = 0; i < currency.length; i++) {
-        URIcalc.push(BASE_URL + currency[i] + "&date=" + today + "&json");
+    // chapter with calculator
+    document.getElementById("optionCalendar").addEventListener("click", visible)
+    function visible(e) {
+        document.getElementById('calcDate').setAttribute('class', 'visible');
+        document.getElementById('btnGetCalc').setAttribute('class', 'visible');
     }
-    var URIusd = URIcalc[0];
-    var URIeur = URIcalc[1];
-    var URIrub = URIcalc[2];
 
-    XHRusd = new XMLHttpRequest();
-    XHRusd.open("GET", URIusd);
-    XHRusd.send();
-    XHRusd.addEventListener("readystatechange", calcUSD);
-
-    XHReur = new XMLHttpRequest();
-    XHReur.open("GET", URIeur);
-    XHReur.send();
-    XHReur.addEventListener("readystatechange", calcEUR);
-
-    XHRrub = new XMLHttpRequest();
-    XHRrub.open("GET", URIrub);
-    XHRrub.send();
-    XHRrub.addEventListener("readystatechange", calcRUB);
-}
-
-function getRateCalendar() {
-    var URIcalcChooseDate = [];
-    var dateCalc = calcdate.value.split("-").join("");
-    for (var i = 0; i < currency.length; i++) {
-        URIcalcChooseDate.push(BASE_URL + currency[i] + "&date=" + dateCalc + "&json");
-
-        console.log(dateCalc);
-
+    document.getElementById("optionToday").addEventListener("click", () => { invisible(); getRateToday(); });
+    function invisible(e) {
+        document.getElementById('calcDate').setAttribute('class', 'invisible');
+        document.getElementById('btnGetCalc').setAttribute('class', 'invisible');
     }
-    var URIusd = URIcalcChooseDate[0];
-    var URIeur = URIcalcChooseDate[1];
-    var URIrub = URIcalcChooseDate[2];
 
-    XHRusd = new XMLHttpRequest();
-    XHRusd.open("GET", URIusd);
-    XHRusd.send();
-    XHRusd.addEventListener("readystatechange", calcUSD);
+    document.getElementById("btnGetCalc").addEventListener("click", () => {getRateCalendar()});
 
-    XHReur = new XMLHttpRequest();
-    XHReur.open("GET", URIeur);
-    XHReur.send();
-    XHReur.addEventListener("readystatechange", calcEUR);
+    const CURRENCY = ['USD', 'EUR', 'RUB'];
+    const UAH = document.getElementById('UAH');
+    const USD = document.getElementById('USD');
+    const EUR = document.getElementById('EUR');
+    const RUB = document.getElementById('RUB');
+    UAH.addEventListener('change', uahCalc);
+    USD.addEventListener('change', usdCalc);
+    EUR.addEventListener('change', eurCalc);
+    RUB.addEventListener('change', rubCalc);
 
-    XHRrub = new XMLHttpRequest();
-    XHRrub.open("GET", URIrub);
-    XHRrub.send();
-    XHRrub.addEventListener("readystatechange", calcRUB);
-}
+    let today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    today = yyyy + mm + dd;
 
-function usdcalc(e) {
-    if (isNaN(Number(e.target.value))) {
-        return;
-    } else {
-        UAH.value = (e.target.value * usdRate).toFixed(2);
-        EUR.value = (e.target.value * (usdRate / eurRate)).toFixed(2);
-        RUB.value = (e.target.value * (usdRate / rubRate)).toFixed(2);
+    let usdRate = 0;
+    let eurRate = 0;
+    let rubRate = 0;
+    let uahRate = 0;
+
+    var XHRusd = 0;
+    var XHReur = 0;
+    var XHRrub = 0;
+
+    var URIcalc = [];
+
+    function calcUSD(e) {
+        var currencyRate = JSON.parse(e.target.responseText)[0];
+        usdRate = currencyRate.rate;
     }
-}
 
-function uahcalc(e) {
-    if (isNaN(Number(e.target.value))) {
-        return;
-    } else {
-        USD.value = (e.target.value / usdRate).toFixed(2);
-        EUR.value = (e.target.value / eurRate).toFixed(2);
-        RUB.value = (e.target.value / rubRate).toFixed(2);
+    function calcEUR(e) {
+        var currencyRate = JSON.parse(e.target.responseText)[0];
+        eurRate = currencyRate.rate;
     }
-}
 
-function eurcalc(e) {
-    if (isNaN(Number(e.target.value))) {
-        return;
-    } else {
-        USD.value = (e.target.value * (eurRate / usdRate)).toFixed(2);
-        UAH.value = (e.target.value * eurRate).toFixed(2);
-        RUB.value = (e.target.value * (eurRate / rubRate)).toFixed(2);
+    function calcRUB(e) {
+        var currencyRate = JSON.parse(e.target.responseText)[0];
+        rubRate = currencyRate.rate;
     }
-}
 
-function rubcalc(e) {
-    if (isNaN(Number(e.target.value))) {
-        return;
-    } else {
-        USD.value = (e.target.value * (rubRate / usdRate)).toFixed(2);
-        UAH.value = (e.target.value * rubRate).toFixed(2);
-        EUR.value = (e.target.value * (rubRate / eurRate)).toFixed(2);
+    function getRateToday(e) {
+        for (var i = 0; i < CURRENCY.length; i++) {
+            URIcalc.push(BASE_URL + CURRENCY[i] + "&date=" + today + "&json");
+        }
+        var URIusd = URIcalc[0];
+        var URIeur = URIcalc[1];
+        var URIrub = URIcalc[2];
+
+        XHRusd = new XMLHttpRequest();
+        XHRusd.open("GET", URIusd);
+        XHRusd.send();
+        XHRusd.addEventListener("readystatechange", calcUSD);
+
+        XHReur = new XMLHttpRequest();
+        XHReur.open("GET", URIeur);
+        XHReur.send();
+        XHReur.addEventListener("readystatechange", calcEUR);
+
+        XHRrub = new XMLHttpRequest();
+        XHRrub.open("GET", URIrub);
+        XHRrub.send();
+        XHRrub.addEventListener("readystatechange", calcRUB);
     }
-}
 
+    function getRateCalendar() {
+        var URIcalcChooseDate = [];
+        var dateCalc = calcDate.value.split("-").join("");
+        for (var i = 0; i < CURRENCY.length; i++) {
+            URIcalcChooseDate.push(BASE_URL + CURRENCY[i] + "&date=" + dateCalc + "&json");
+
+            console.log(dateCalc);
+
+        }
+        var URIusd = URIcalcChooseDate[0];
+        var URIeur = URIcalcChooseDate[1];
+        var URIrub = URIcalcChooseDate[2];
+
+        XHRusd = new XMLHttpRequest();
+        XHRusd.open("GET", URIusd);
+        XHRusd.send();
+        XHRusd.addEventListener("readystatechange", calcUSD);
+
+        XHReur = new XMLHttpRequest();
+        XHReur.open("GET", URIeur);
+        XHReur.send();
+        XHReur.addEventListener("readystatechange", calcEUR);
+
+        XHRrub = new XMLHttpRequest();
+        XHRrub.open("GET", URIrub);
+        XHRrub.send();
+        XHRrub.addEventListener("readystatechange", calcRUB);
+    }
+
+    function usdCalc(e) {
+        if (isNaN(Number(e.target.value))) {
+            return;
+        } else {
+            UAH.value = (e.target.value * usdRate).toFixed(2);
+            EUR.value = (e.target.value * (usdRate / eurRate)).toFixed(2);
+            RUB.value = (e.target.value * (usdRate / rubRate)).toFixed(2);
+        }
+    }
+
+    function uahCalc(e) {
+        if (isNaN(Number(e.target.value))) {
+            return;
+        } else {
+            USD.value = (e.target.value / usdRate).toFixed(2);
+            EUR.value = (e.target.value / eurRate).toFixed(2);
+            RUB.value = (e.target.value / rubRate).toFixed(2);
+        }
+    }
+
+    function eurCalc(e) {
+        if (isNaN(Number(e.target.value))) {
+            return;
+        } else {
+            USD.value = (e.target.value * (eurRate / usdRate)).toFixed(2);
+            UAH.value = (e.target.value * eurRate).toFixed(2);
+            RUB.value = (e.target.value * (eurRate / rubRate)).toFixed(2);
+        }
+    }
+
+    function rubCalc(e) {
+        if (isNaN(Number(e.target.value))) {
+            return;
+        } else {
+            USD.value = (e.target.value * (rubRate / usdRate)).toFixed(2);
+            UAH.value = (e.target.value * rubRate).toFixed(2);
+            EUR.value = (e.target.value * (rubRate / eurRate)).toFixed(2);
+        }
+    }
