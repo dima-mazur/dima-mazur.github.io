@@ -26,7 +26,7 @@ function getRate(e) {
     if (dateValue == 0) {
         dateValue = today;
     } else {
-        return dateValue;
+        dateValue;
     }
     let URI = BASE_URL + radioValue.value + "&date=" + dateValue + "&json";
 
