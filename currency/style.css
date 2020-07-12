@@ -13,6 +13,7 @@ html {
     height: 300px;
     border-right: 5px rgb(226, 225, 209) solid;
     border-left: 5px rgb(226, 225, 209) solid;
+    border-top: 5px rgb(226, 225, 209) solid;
 }
 
 #course:hover, #calc:hover, #chart:hover {

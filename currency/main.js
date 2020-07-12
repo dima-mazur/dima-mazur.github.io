@@ -3,13 +3,8 @@ document.getElementById("btnGet").addEventListener("click", getRate);
 
 const BASE_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?valcode=";
 
-function getJson(response) {
-    return response.json();
-}
-
-function checkError(error) {
-    alert('Request failed', error);
-}
+let getJson = (response) => response.json();
+let checkError = (error) => alert('Request failed', error);
 
 function checkStatus(response) {
     if (response.status >= 200 && response.status < 300) {
@@ -82,17 +77,9 @@ let uahRate = 0;
 
 let URIcalc = [];
 
-function calcUSD(data) {
-    usdRate = data[0].rate;
-}
-
-function calcEUR(data) {
-    eurRate = data[0].rate;
-}
-
-function calcRUB(data) {
-    rubRate = data[0].rate;
-}
+let calcUSD = (data) => usdRate = data[0].rate;
+let calcEUR = (data) => eurRate = data[0].rate;
+let calcRUB = (data) => rubRate = data[0].rate;
 
 function getRateToday(e) {
     for (let i = 0; i < CURRENCY.length; i++) {
